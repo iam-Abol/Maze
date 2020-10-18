@@ -21,6 +21,9 @@ public:
 		head = new Position;
 		size = 0;
 	}
+	~stack(){
+		delete head;
+	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
