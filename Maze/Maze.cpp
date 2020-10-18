@@ -24,6 +24,17 @@ public:
 	~stack(){
 		delete head;
 	}
+	void print(){
+		if (size == 0)
+			std::cout << " - - -> STACK IS EMPTY ! <- - - " << std::endl;
+		else{
+			Position *temp = head;
+			while (temp){
+				std::cout << temp->i << " - " << temp->j << std::endl;
+				temp = temp->next;
+			}
+		}
+	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
