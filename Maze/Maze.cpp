@@ -12,21 +12,21 @@ public:
 		delete next;
 	}
 };
-class stack{
+class Stack{
 	Position *head;
 	int size;
 	
 public:
-	stack(){
+	Stack(){
 		head = new Position;
 		size = 0;
 	}
-	~stack(){
+	~Stack(){
 		delete head;
 	}
 	void print(){
 		if (size == 0)
-			std::cout << " - - -> STACK IS EMPTY ! <- - - " << std::endl;
+			std::cout << "- - -> STACK IS EMPTY ! <- - - " << std::endl;
 		else{
 			Position *temp = head;
 			while (temp){
@@ -38,7 +38,9 @@ public:
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
-	
+	Stack s;
+	s.print();
+
 	return 0;
 }
 
