@@ -17,6 +17,7 @@ public:
 	}
 };
 class Stack{
+private:
 	Position *head;
 	int size;
 
@@ -86,7 +87,11 @@ struct Char
 	char data;
 	bool isVisited;
 };
+class Maze{
+private:
+	std::vector <Char>* maze;
 
+};
 int _tmain(int argc, _TCHAR* argv[])
 {
 
