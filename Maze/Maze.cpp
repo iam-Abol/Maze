@@ -40,6 +40,22 @@ public:
 			size++;
 		}
 	}
+	void pop(){
+		if (size == 1){
+			head = NULL;
+			size = 0;
+		}
+		else if (size > 1){
+			Position *temp = head;
+			while (temp->next->next != NULL){
+				temp = temp->next;
+
+			}
+			size--;
+			temp->next = NULL;
+		}
+
+	}
 	void print(){
 		if (size == 0)
 			std::cout << "- - -> STACK IS EMPTY ! <- - - " << std::endl;
