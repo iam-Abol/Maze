@@ -3,6 +3,7 @@
 #include <thread>
 #include <vector>
 #include <fstream>
+#include <string>
 class Position{
 public:
 	int i, j;
@@ -90,11 +91,12 @@ struct Char
 class Maze{
 private:
 	std::vector <Char>* maze;
-
+public:
+	
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
-
+	
 	return 0;
 }
 
