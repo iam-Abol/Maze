@@ -32,7 +32,7 @@ public:
 			head = newPosition;
 		}
 		else{
-			Position*temp = head;
+			Position* temp = head;
 			while (temp->next){
 				temp = temp->next;
 			}
@@ -67,6 +67,11 @@ public:
 			}
 		}
 	}
+};
+struct Char
+{
+	char data;
+	bool isvisited;
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
