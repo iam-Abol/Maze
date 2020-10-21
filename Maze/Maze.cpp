@@ -58,6 +58,17 @@ public:
 		}
 
 	}
+	Position *top(){
+		if (size == 1)
+			return head;
+		else{
+			Position *temp = head;
+			while (temp->next){
+				temp = temp->next;
+			}
+			return temp;
+		}
+	}
 	void print(){
 		if (size == 0)
 			std::cout << "- - -> STACK IS EMPTY ! <- - - " << std::endl;
@@ -75,9 +86,10 @@ struct Char
 	char data;
 	bool isVisited;
 };
+
 int _tmain(int argc, _TCHAR* argv[])
 {
-	
+
 	return 0;
 }
 
