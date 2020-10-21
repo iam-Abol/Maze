@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include <iostream>
 #include <thread>
+#include <vector>
+#include <fstream>
 class Position{
 public:
 	int i, j;
@@ -71,7 +73,7 @@ public:
 struct Char
 {
 	char data;
-	bool isvisited;
+	bool isVisited;
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
