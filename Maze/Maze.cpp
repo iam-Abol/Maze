@@ -91,18 +91,23 @@ struct Char
 class Maze{
 private:
 	Char** maze;
-
+	int size;
 public:
 	Maze(std::string path ){
 		std::fstream read(path);
-		int size;
+		
 		read >> size;
 		std::cout << size;
 		maze = new Char*[size];
 		for (int i = 0; i < size; i++){
 			maze[i] = new Char[size];
 		}
-		maze[0][0].data=11;
+		
+	}
+	~Maze(){
+		for (int i = 0; i < size; i++)
+			delete[] maze[i];
+		delete[] maze;
 	}
 };
 int _tmain(int argc, _TCHAR* argv[])
