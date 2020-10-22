@@ -86,17 +86,23 @@ public:
 struct Char
 {
 	char data;
-	bool isVisited;
+	bool isVisited=false;
 };
 class Maze{
 private:
-	
+	Char** maze;
 
 public:
 	Maze(std::string path ){
-		
-		
-		
+		std::fstream read(path);
+		int size;
+		read >> size;
+		std::cout << size;
+		maze = new Char*[size];
+		for (int i = 0; i < size; i++){
+			maze[i] = new Char[size];
+		}
+		maze[0][0].data=11;
 	}
 };
 int _tmain(int argc, _TCHAR* argv[])
