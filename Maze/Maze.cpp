@@ -97,12 +97,18 @@ public:
 		std::fstream read(path);
 		std::string line;
 		int numberOfLine = 0;
+		std::vector <std::string> info;
 		while (read){
 			std::getline(read, line);
 			std::cout << line << std::endl;
+			info.push_back(line);
 			numberOfLine++;
 		}
-
+		read.close();
+		maze = new std::vector<Char>[numberOfLine];
+		Char c;
+		
+		
 	}
 };
 int _tmain(int argc, _TCHAR* argv[])
