@@ -91,11 +91,23 @@ struct Char
 class Maze{
 private:
 	std::vector <Char>* maze;
+
 public:
-	
+	Maze(std::string path ){
+		std::fstream read(path);
+		std::string line;
+		int numberOfLine = 0;
+		while (read){
+			std::getline(read, line);
+			std::cout << line << std::endl;
+			numberOfLine++;
+		}
+
+	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
+	Maze m("maze.txt");
 	
 	return 0;
 }
