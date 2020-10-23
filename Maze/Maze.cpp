@@ -92,6 +92,8 @@ class Maze{
 private:
 	Char** maze;
 	int size;
+	Stack solution;
+	
 public:
 	Maze(std::string path){
 		std::fstream read(path);
@@ -104,7 +106,7 @@ public:
 			maze[i] = new Char[size];
 		}
 
-
+		
 		for (int i = 0; i < size; i++){
 			std::getline(read, line);
 			int top = 0;
@@ -126,6 +128,9 @@ public:
 		}
 		read.close();
 	}
+	void FindSolution(){
+
+	}
 	~Maze(){
 		for (int i = 0; i < size; i++)
 			delete[] maze[i];
@@ -134,11 +139,12 @@ public:
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
-	// path = maze.txt
+	// path = maze.txt or ... 
+	std::cout << "Enter the path of txt file : " << std::endl;
 	std::string path;
 	std::cin >> path;
 	Maze m(path);
-
+	m.FindSolution();
 	return 0;
 }
 
