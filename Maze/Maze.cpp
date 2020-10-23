@@ -138,40 +138,58 @@ public:
 		Position *start = new Position(0, 0);
 		maze[0][0].isVisited = true;
 
-		for (int i = solution.top()->i; i < size;i=solution.top()->i){
-			for (int j = solution.top()->j; j < size;j=solution.top()->j){
-				if (maze[i][j + 1].data == '0'&&maze[i][j+1].isVisited==false){
+		for (int i = solution.top()->i; i != size - 1; i = solution.top()->i){
+			for (int j = solution.top()->j; j != size - 1; j = solution.top()->j){
+				if (maze[i][j + 1].data == '0'&&maze[i][j + 1].isVisited == false){
 					Position* newPosition = new Position(i, j + 1);
 					solution.push(newPosition);
 					maze[i][j + 1].isVisited = true;
 				}
-				else if (1){
-
+				else if (maze[i + 1][j].data == '0'&&maze[i + 1][j].isVisited == false){
+					Position* newPosition = new Position(i + 1, j);
+					solution.push(newPosition);
+					maze[i + 1][j].isVisited = true;
 				}
-				else if (1){
-
+				else if (maze[i + 1][j + 1].data == '0'&&maze[i + 1][j + 1].isVisited == false){
+					Position* newPosition = new Position(i + 1, j + 1);
+					solution.push(newPosition);
+					maze[i + 1][j + 1].isVisited = true;
 				}
-				else if (1){
-
+				else if (maze[i - 1][j + 1].data == '0'&&maze[i - 1][j + 1].isVisited == false){
+					Position* newPosition = new Position(i - 1, j + 1);
+					solution.push(newPosition);
+					maze[i - 1][j + 1].isVisited = true;
 				}
-				else if (1){
-
+				else  if (maze[i][j - 1].data == '0'&&maze[i][j - 1].isVisited == false){
+					Position* newPosition = new Position(i, j - 1);
+					solution.push(newPosition);
+					maze[i][j - 1].isVisited = true;
 				}
-				else if (1){
-
+				else if (maze[i - 1][j].data == '0'&&maze[i - 1][j].isVisited == false){
+					Position* newPosition = new Position(i - 1, j);
+					solution.push(newPosition);
+					maze[i - 1][j].isVisited = true;
 				}
-				else if (1){
-
+				else if (maze[i - 1][j - 1].data == '0'&&maze[i - 1][j - 1].isVisited == false){
+					Position* newPosition = new Position(i - 1, j - 1);
+					solution.push(newPosition);
+					maze[i - 1][j - 1].isVisited = true;
 				}
-				else if (1){
-
+				else if (maze[i + 1][j - 1].data == '0'&&maze[i + 1][j - 1].isVisited == false){
+					Position* newPosition = new Position(i + 1, j - 1);
+					solution.push(newPosition);
+					maze[i + 1][j - 1].isVisited = true;
 				}
 				else{
-
+					solution.pop();
 				}
 			}
-			
+
 		}
+		
+		
+
+	
 	}
 	~Maze(){
 		for (int i = 0; i < size; i++)
@@ -187,7 +205,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cin >> path;
 	Maze m(path);
 	m.FindSolution();
-	
+
 	return 0;
 }
 
