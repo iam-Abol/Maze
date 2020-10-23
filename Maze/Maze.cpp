@@ -71,6 +71,12 @@ public:
 			return temp;
 		}
 	}
+	int isEmpty(){
+		if (size == 0)
+			return true;
+		else
+			return false;
+	}
 	void print(){
 		if (size == 0)
 			std::cout << "- - -> STACK IS EMPTY ! <- - - " << std::endl;
@@ -139,25 +145,25 @@ public:
 					solution.push(newPosition);
 					maze[i][j + 1].isVisited = true;
 				}
-				else if (){
+				else if (1){
 
 				}
-				else if (){
+				else if (1){
 
 				}
-				else if (){
+				else if (1){
 
 				}
-				else if (){
+				else if (1){
 
 				}
-				else if (){
+				else if (1){
 
 				}
-				else if (){
+				else if (1){
 
 				}
-				else if (){
+				else if (1){
 
 				}
 				else{
@@ -181,6 +187,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cin >> path;
 	Maze m(path);
 	m.FindSolution();
+	
 	return 0;
 }
 
