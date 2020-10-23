@@ -86,23 +86,45 @@ public:
 struct Char
 {
 	char data;
-	bool isVisited=false;
+	bool isVisited = false;
 };
 class Maze{
 private:
 	Char** maze;
 	int size;
 public:
-	Maze(std::string path ){
+	Maze(std::string path){
 		std::fstream read(path);
-		
+		std::string line;
 		read >> size;
-		std::cout << size;
+		std::getline(read, line);
+		std::cout << size << std::endl;
 		maze = new Char*[size];
 		for (int i = 0; i < size; i++){
 			maze[i] = new Char[size];
 		}
-		
+
+
+		for (int i = 0; i < size; i++){
+			std::getline(read, line);
+			int top = 0;
+			std::cout << line << std::endl;
+			for (int j = 0; j < line.size(); j++){
+				if (line[j] != ' '){
+					maze[i][top].data = line[j];
+					top++;
+				}
+			}
+		}
+		std::cout << std::endl;
+		for (int i = 0; i < size; i++){
+			for (int j = 0; j < size; j++){
+				std::cout << maze[i][j].data;
+			}
+			std::cout << std::endl;
+
+		}
+		read.close();
 	}
 	~Maze(){
 		for (int i = 0; i < size; i++)
@@ -112,8 +134,11 @@ public:
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Maze m("maze.txt");
-	
+	// path = maze.txt
+	std::string path;
+	std::cin >> path;
+	Maze m(path);
+
 	return 0;
 }
 
