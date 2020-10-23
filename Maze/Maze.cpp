@@ -146,7 +146,7 @@ public:
 		maze[0][0].isVisited = true;
 		solution.push(start);
 		bool shouldBreak = false;
-		for (int i = solution.top()->i; solution.top()->i != size - 1 && solution.top()->j != size - 1;){
+		for (int i = solution.top()->i; ;){
 			for (int j = solution.top()->j;;){
 				if (j + 1 < size && maze[i][j + 1].data == '0' && maze[i][j + 1].isVisited == false){
 					Position* newPosition = new Position(i, j + 1);
@@ -202,7 +202,7 @@ public:
 				if (shouldBreak){
 					break;
 				}
-				if (i == size - 1 && j == size - 1){
+				if (solution.top()->i == size - 1 && solution.top()->j == size - 1){
 					shouldBreak = true;
 					break;
 				}
