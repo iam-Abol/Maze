@@ -81,14 +81,18 @@ public:
 		return size;
 	}
 	void print(){
-		if (size == 0)
-			std::cout << "- - -> STACK IS EMPTY ! <- - - " << std::endl;
+		if (size == 0 && size == 1)
+			std::cout << "- - -> THERE IS NO WAY ! <- - - " << std::endl;
 		else{
 			Position *temp = head;
+			std::string space = "";
 			while (temp){
+				
 				std::cout << temp->i << " - " << temp->j << std::endl;
+
 				temp = temp->next;
 			}
+			
 		}
 	}
 };
