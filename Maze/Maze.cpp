@@ -4,6 +4,11 @@
 #include <vector>
 #include <fstream>
 #include <string>
+struct Char
+{
+	char data;
+	bool isVisited = false;
+};
 class Position{
 public:
 	int i, j;
@@ -80,27 +85,32 @@ public:
 	int getSize(){
 		return size;
 	}
-	void print(){
-		if (size == 0 && size == 1)
+	void print(Char** maze,int size){
+		if (this->size == 0 && this->size == 1)
 			std::cout << "- - -> THERE IS NO WAY ! <- - - " << std::endl;
 		else{
 			Position *temp = head;
-			std::string space = "";
-			while (temp){
-				
+			/*for (int i = 0; i < size; i++){
+				for (int j = 0; j < size; j++){
+					if (temp->i == i&&temp->j == j){
+						std::cout << "0";
+						temp = temp->next;
+					}
+					else
+						std::cout << " ";
+				}
+				std::cout << std::endl;
+			}*/
+			while (temp)
+			{
 				std::cout << temp->i << " - " << temp->j << std::endl;
-
 				temp = temp->next;
 			}
 			
 		}
 	}
 };
-struct Char
-{
-	char data;
-	bool isVisited = false;
-};
+
 class Maze{
 private:
 	Char** maze;
@@ -216,7 +226,7 @@ public:
 
 		}
 
-		solution.print();
+		solution.print(maze,size);
 
 
 	}
