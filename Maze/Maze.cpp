@@ -137,9 +137,10 @@ public:
 	void FindSolution(){
 		Position *start = new Position(0, 0);
 		maze[0][0].isVisited = true;
-
-		for (int i = solution.top()->i; i != size - 1; i = solution.top()->i){
-			for (int j = solution.top()->j; j != size - 1; j = solution.top()->j){
+		solution.push(start);
+		bool shouldBreak = false;
+		for (int i = solution.top()->i; solution.top()->i != size - 1 && solution.top()->j != size - 1;){
+			for (int j = solution.top()->j;;){
 				if (maze[i][j + 1].data == '0'&&maze[i][j + 1].isVisited == false){
 					Position* newPosition = new Position(i, j + 1);
 					solution.push(newPosition);
@@ -183,13 +184,22 @@ public:
 				else{
 					solution.pop();
 				}
+				i = solution.top()->i;
+				j = solution.top()->j;
+				if (i == size - 1 && j == size - 1){
+					shouldBreak = true;
+					break;
+				}
+
 			}
+			if (shouldBreak)
+				break;
 
 		}
-		
-		
 
-	
+		solution.print();
+
+
 	}
 	~Maze(){
 		for (int i = 0; i < size; i++)
