@@ -141,42 +141,42 @@ public:
 		bool shouldBreak = false;
 		for (int i = solution.top()->i; solution.top()->i != size - 1 && solution.top()->j != size - 1;){
 			for (int j = solution.top()->j;;){
-				if (maze[i][j + 1].data == '0'&&maze[i][j + 1].isVisited == false){
+				if (j + 1 < size && maze[i][j + 1].data == '0' && maze[i][j + 1].isVisited == false){
 					Position* newPosition = new Position(i, j + 1);
 					solution.push(newPosition);
 					maze[i][j + 1].isVisited = true;
 				}
-				else if (maze[i + 1][j].data == '0'&&maze[i + 1][j].isVisited == false){
+				else if (i + 1 < size && maze[i + 1][j].data == '0'&&maze[i + 1][j].isVisited == false){
 					Position* newPosition = new Position(i + 1, j);
 					solution.push(newPosition);
 					maze[i + 1][j].isVisited = true;
 				}
-				else if (maze[i + 1][j + 1].data == '0'&&maze[i + 1][j + 1].isVisited == false){
+				else if (i + 1 < size && j + 1 < size &&maze[i + 1][j + 1].data == '0'&&maze[i + 1][j + 1].isVisited == false){
 					Position* newPosition = new Position(i + 1, j + 1);
 					solution.push(newPosition);
 					maze[i + 1][j + 1].isVisited = true;
 				}
-				else if (maze[i - 1][j + 1].data == '0'&&maze[i - 1][j + 1].isVisited == false){
+				else if (i - 1 >= 0 && j + 1 < size&&maze[i - 1][j + 1].data == '0'&&maze[i - 1][j + 1].isVisited == false){
 					Position* newPosition = new Position(i - 1, j + 1);
 					solution.push(newPosition);
 					maze[i - 1][j + 1].isVisited = true;
 				}
-				else  if (maze[i][j - 1].data == '0'&&maze[i][j - 1].isVisited == false){
+				else  if (j - 1 >= 0 && maze[i][j - 1].data == '0'&&maze[i][j - 1].isVisited == false){
 					Position* newPosition = new Position(i, j - 1);
 					solution.push(newPosition);
 					maze[i][j - 1].isVisited = true;
 				}
-				else if (maze[i - 1][j].data == '0'&&maze[i - 1][j].isVisited == false){
+				else if (i - 1 >= 0 && maze[i - 1][j].data == '0'&&maze[i - 1][j].isVisited == false){
 					Position* newPosition = new Position(i - 1, j);
 					solution.push(newPosition);
 					maze[i - 1][j].isVisited = true;
 				}
-				else if (maze[i - 1][j - 1].data == '0'&&maze[i - 1][j - 1].isVisited == false){
+				else if (i - 1 >= 0 && j - 1 >= 0 && maze[i - 1][j - 1].data == '0'&&maze[i - 1][j - 1].isVisited == false){
 					Position* newPosition = new Position(i - 1, j - 1);
 					solution.push(newPosition);
 					maze[i - 1][j - 1].isVisited = true;
 				}
-				else if (maze[i + 1][j - 1].data == '0'&&maze[i + 1][j - 1].isVisited == false){
+				else if (i + 1 < size&&j - 1 >= 0 && maze[i + 1][j - 1].data == '0'&&maze[i + 1][j - 1].isVisited == false){
 					Position* newPosition = new Position(i + 1, j - 1);
 					solution.push(newPosition);
 					maze[i + 1][j - 1].isVisited = true;
