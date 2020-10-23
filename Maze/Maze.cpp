@@ -77,6 +77,9 @@ public:
 		else
 			return false;
 	}
+	int getSize(){
+		return size;
+	}
 	void print(){
 		if (size == 0)
 			std::cout << "- - -> STACK IS EMPTY ! <- - - " << std::endl;
