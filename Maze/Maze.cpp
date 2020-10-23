@@ -93,7 +93,7 @@ private:
 	Char** maze;
 	int size;
 	Stack solution;
-	
+
 public:
 	Maze(std::string path){
 		std::fstream read(path);
@@ -106,7 +106,7 @@ public:
 			maze[i] = new Char[size];
 		}
 
-		
+
 		for (int i = 0; i < size; i++){
 			std::getline(read, line);
 			int top = 0;
@@ -129,7 +129,43 @@ public:
 		read.close();
 	}
 	void FindSolution(){
+		Position *start = new Position(0, 0);
+		maze[0][0].isVisited = true;
 
+		for (int i = solution.top()->i; i < size;i=solution.top()->i){
+			for (int j = solution.top()->j; j < size;j=solution.top()->j){
+				if (maze[i][j + 1].data == '0'&&maze[i][j+1].isVisited==false){
+					Position* newPosition = new Position(i, j + 1);
+					solution.push(newPosition);
+					maze[i][j + 1].isVisited = true;
+				}
+				else if (){
+
+				}
+				else if (){
+
+				}
+				else if (){
+
+				}
+				else if (){
+
+				}
+				else if (){
+
+				}
+				else if (){
+
+				}
+				else if (){
+
+				}
+				else{
+
+				}
+			}
+			
+		}
 	}
 	~Maze(){
 		for (int i = 0; i < size; i++)
