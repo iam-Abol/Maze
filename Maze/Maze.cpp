@@ -182,10 +182,19 @@ public:
 					maze[i + 1][j - 1].isVisited = true;
 				}
 				else{
-					solution.pop();
+					if (solution.isEmpty() == false)
+						solution.pop();
+					else{
+						std::cout << "- - -> THERE IS NO WAY <- - -" << std::endl;
+						shouldBreak = true;
+					}
+
 				}
 				i = solution.top()->i;
 				j = solution.top()->j;
+				if (shouldBreak){
+					break;
+				}
 				if (i == size - 1 && j == size - 1){
 					shouldBreak = true;
 					break;
