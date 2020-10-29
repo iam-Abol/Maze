@@ -154,7 +154,7 @@ public:
 	Char** getMaze(){
 		return maze;
 	}
-	void FindSolution(){
+	void FindSolution(Char** maze){
 		Position *start = new Position(0, 0);
 		maze[0][0].isVisited = true;
 		solution.push(start);
@@ -248,7 +248,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	Maze m(path);
 	
 	
-	m.FindSolution();
+	m.FindSolution(m.getMaze());
 
 	return 0;
 }
