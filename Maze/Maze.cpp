@@ -85,28 +85,28 @@ public:
 	int getSize(){
 		return size;
 	}
-	void print(Char** maze,int size){
+	void print(Char** maze, int size){
 		if (this->size == 0 && this->size == 1)
 			std::cout << "- - -> THERE IS NO WAY ! <- - - " << std::endl;
 		else{
 			Position *temp = head;
 			/*for (int i = 0; i < size; i++){
 				for (int j = 0; j < size; j++){
-					if (temp->i == i&&temp->j == j){
-						std::cout << "0";
-						temp = temp->next;
-					}
-					else
-						std::cout << " ";
+				if (temp->i == i&&temp->j == j){
+				std::cout << "0";
+				temp = temp->next;
+				}
+				else
+				std::cout << " ";
 				}
 				std::cout << std::endl;
-			}*/
+				}*/
 			while (temp)
 			{
 				std::cout << temp->i << " - " << temp->j << std::endl;
 				temp = temp->next;
 			}
-			
+
 		}
 	}
 };
@@ -151,12 +151,15 @@ public:
 		}
 		read.close();
 	}
+	Char** getMaze(){
+		return maze;
+	}
 	void FindSolution(){
 		Position *start = new Position(0, 0);
 		maze[0][0].isVisited = true;
 		solution.push(start);
 		bool shouldBreak = false;
-		for (int i = solution.top()->i; ;){
+		for (int i = solution.top()->i;;){
 			for (int j = solution.top()->j;;){
 				if (j + 1 < size && maze[i][j + 1].data == '0' && maze[i][j + 1].isVisited == false){
 					Position* newPosition = new Position(i, j + 1);
@@ -226,7 +229,7 @@ public:
 
 		}
 
-		solution.print(maze,size);
+		solution.print(maze, size);
 
 
 	}
@@ -243,6 +246,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::string path;
 	std::cin >> path;
 	Maze m(path);
+	
+	
 	m.FindSolution();
 
 	return 0;
