@@ -303,7 +303,12 @@ private:
 				FindSolutionWithRecursive(maze, solution, size);
 			}
 			else{
-
+				if (solution.isEmpty() == true || solution.getSize() == 1){
+					std::cout << "- - -> THERE IS NO WAY <- - -" << std::endl;
+					return;
+					
+				}
+				
 			}
 		}
 	}
