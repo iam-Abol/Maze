@@ -238,7 +238,7 @@ public:
 	void recursiveFindSolution(){
 		Stack s;
 		s.push(new Position(0, 0));
-		FindSolutionWithRecursive(maze, s);
+		FindSolutionWithRecursive(maze, s,size);
 	}
 	~Maze(){
 		for (int i = 0; i < size; i++)
@@ -246,10 +246,16 @@ public:
 		delete[] maze;
 	}
 private:
-	void FindSolutionWithRecursive(Char** maze, Stack solution){
+	void FindSolutionWithRecursive(Char** maze, Stack solution,int size){
 		int i, j;
 		i = solution.top()->i;
 		j = solution.top()->j;
+		if (i == size - 1 && j == size - 1){
+			return;
+		}
+		else{
+
+		}
 	}
 };
 int _tmain(int argc, _TCHAR* argv[])
