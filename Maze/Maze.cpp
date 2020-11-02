@@ -254,7 +254,12 @@ private:
 			return;
 		}
 		else{
-
+			if (j + 1 < size && maze[i][j + 1].data == '0' && maze[i][j + 1].isVisited == false){
+				Position* newPosition = new Position(i, j + 1);
+				solution.push(newPosition);
+				maze[i][j + 1].isVisited = true;
+				FindSolutionWithRecursive(maze, solution,size);
+			}
 		}
 	}
 };
