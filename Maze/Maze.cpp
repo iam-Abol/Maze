@@ -238,7 +238,7 @@ public:
 	void recursiveFindSolution(){
 		Stack s;
 		s.push(new Position(0, 0));
-		FindSolutionWithRecursive(maze, s,size);
+		FindSolutionWithRecursive(maze, s, size);
 	}
 	~Maze(){
 		for (int i = 0; i < size; i++)
@@ -246,7 +246,7 @@ public:
 		delete[] maze;
 	}
 private:
-	void FindSolutionWithRecursive(Char** maze, Stack solution,int size){
+	void FindSolutionWithRecursive(Char** maze, Stack solution, int size){
 		int i, j;
 		i = solution.top()->i;
 		j = solution.top()->j;
@@ -258,7 +258,7 @@ private:
 				Position* newPosition = new Position(i, j + 1);
 				solution.push(newPosition);
 				maze[i][j + 1].isVisited = true;
-				FindSolutionWithRecursive(maze, solution,size);
+				FindSolutionWithRecursive(maze, solution, size);
 			}
 			else if (i + 1 < size && maze[i + 1][j].data == '0'&&maze[i + 1][j].isVisited == false){
 				Position* newPosition = new Position(i + 1, j);
@@ -275,8 +275,8 @@ private:
 			else if (i - 1 >= 0 && j + 1 < size&&maze[i - 1][j + 1].data == '0'&&maze[i - 1][j + 1].isVisited == false){
 				Position* newPosition = new Position(i - 1, j + 1);
 				solution.push(newPosition);
-			maze[i - 1][j + 1].isVisited = true;
-			FindSolutionWithRecursive(maze, solution, size);
+				maze[i - 1][j + 1].isVisited = true;
+				FindSolutionWithRecursive(maze, solution, size);
 			}
 			else  if (j - 1 >= 0 && maze[i][j - 1].data == '0'&&maze[i][j - 1].isVisited == false){
 				Position* newPosition = new Position(i, j - 1);
@@ -306,9 +306,14 @@ private:
 				if (solution.isEmpty() == true || solution.getSize() == 1){
 					std::cout << "- - -> THERE IS NO WAY <- - -" << std::endl;
 					return;
-					
+
 				}
-				
+				else{
+					solution.pop();
+					FindSolutionWithRecursive(maze, solution, size);
+
+				}
+
 			}
 		}
 	}
