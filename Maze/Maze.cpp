@@ -116,6 +116,8 @@ private:
 	Char** maze;
 	int size;
 	Stack solution;
+	std::vector<Stack> allSoultions;
+
 
 public:
 	Maze(std::string path){
@@ -233,11 +235,17 @@ public:
 
 
 	}
+	void recursiveFindSolution(){
+		Stack s;
+		s.push(new Position(0, 0));
+	}
 	~Maze(){
 		for (int i = 0; i < size; i++)
 			delete[] maze[i];
 		delete[] maze;
 	}
+private:
+	
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -246,8 +254,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::string path;
 	std::cin >> path;
 	Maze m(path);
-	
-	
+
+
 	m.FindSolution(m.getMaze());
 
 	return 0;
