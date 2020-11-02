@@ -85,7 +85,7 @@ public:
 	int getSize(){
 		return size;
 	}
-	void print(Char** maze, int size){
+	void print(){
 		if (this->size == 0 && this->size == 1)
 			std::cout << "- - -> THERE IS NO WAY ! <- - - " << std::endl;
 		else{
@@ -251,6 +251,7 @@ private:
 		i = solution.top()->i;
 		j = solution.top()->j;
 		if (i == size - 1 && j == size - 1){
+			solution.print();
 			return;
 		}
 		else{
