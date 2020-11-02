@@ -260,6 +260,41 @@ private:
 				maze[i][j + 1].isVisited = true;
 				FindSolutionWithRecursive(maze, solution,size);
 			}
+			else if (i + 1 < size && maze[i + 1][j].data == '0'&&maze[i + 1][j].isVisited == false){
+				Position* newPosition = new Position(i + 1, j);
+				solution.push(newPosition);
+				maze[i + 1][j].isVisited = true;
+			}
+			else if (i + 1 < size && j + 1 < size &&maze[i + 1][j + 1].data == '0'&&maze[i + 1][j + 1].isVisited == false){
+				Position* newPosition = new Position(i + 1, j + 1);
+				solution.push(newPosition);
+				maze[i + 1][j + 1].isVisited = true;
+			}
+			else if (i - 1 >= 0 && j + 1 < size&&maze[i - 1][j + 1].data == '0'&&maze[i - 1][j + 1].isVisited == false){
+				Position* newPosition = new Position(i - 1, j + 1);
+				solution.push(newPosition);
+				maze[i - 1][j + 1].isVisited = true;
+			}
+			else  if (j - 1 >= 0 && maze[i][j - 1].data == '0'&&maze[i][j - 1].isVisited == false){
+				Position* newPosition = new Position(i, j - 1);
+				solution.push(newPosition);
+				maze[i][j - 1].isVisited = true;
+			}
+			else if (i - 1 >= 0 && maze[i - 1][j].data == '0'&&maze[i - 1][j].isVisited == false){
+				Position* newPosition = new Position(i - 1, j);
+				solution.push(newPosition);
+				maze[i - 1][j].isVisited = true;
+			}
+			else if (i - 1 >= 0 && j - 1 >= 0 && maze[i - 1][j - 1].data == '0'&&maze[i - 1][j - 1].isVisited == false){
+				Position* newPosition = new Position(i - 1, j - 1);
+				solution.push(newPosition);
+				maze[i - 1][j - 1].isVisited = true;
+			}
+			else if (i + 1 < size&&j - 1 >= 0 && maze[i + 1][j - 1].data == '0'&&maze[i + 1][j - 1].isVisited == false){
+				Position* newPosition = new Position(i + 1, j - 1);
+				solution.push(newPosition);
+				maze[i + 1][j - 1].isVisited = true;
+			}
 		}
 	}
 };
