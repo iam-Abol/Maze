@@ -245,7 +245,9 @@ public:
 		delete[] maze;
 	}
 private:
-	
+	void FindSolutionWithRecursive(Char** maze, Stack solution){
+		
+	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
