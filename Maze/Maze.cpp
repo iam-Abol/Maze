@@ -116,7 +116,7 @@ private:
 	Char** maze;
 	int size;
 	Stack solution;
-	std::vector<Stack> allSoultions;
+	std::vector<Stack> allSolutions;
 
 
 public:
@@ -238,6 +238,7 @@ public:
 	void recursiveFindSolution(){
 		Stack s;
 		s.push(new Position(0, 0));
+		FindSolutionWithRecursive(maze, s);
 	}
 	~Maze(){
 		for (int i = 0; i < size; i++)
@@ -246,7 +247,9 @@ public:
 	}
 private:
 	void FindSolutionWithRecursive(Char** maze, Stack solution){
-		
+		int i, j;
+		i = solution.top()->i;
+		j = solution.top()->j;
 	}
 };
 int _tmain(int argc, _TCHAR* argv[])
