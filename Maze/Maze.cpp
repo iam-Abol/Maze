@@ -18,9 +18,7 @@ public:
 
 	}
 	Position(int i, int j) :i(i), j(j){};
-	~Position(){
-		delete next;
-	}
+
 };
 class Stack{
 private:
@@ -33,7 +31,9 @@ public:
 		size = 0;
 	}
 	~Stack(){
-		delete head;
+		// it free
+		if (head->i == 0 && head->j == 0)
+			delete head;
 	}
 	void push(Position *newPosition){
 		if (size == 0){
@@ -231,7 +231,7 @@ public:
 
 		}
 
-		solution.print(maze, size);
+		solution.print();
 
 
 	}
@@ -315,6 +315,7 @@ private:
 
 				}
 
+
 			}
 		}
 	}
@@ -328,7 +329,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	Maze m(path);
 
 
-	m.FindSolution(m.getMaze());
+	m.recursiveFindSolution();
 
 	return 0;
 }
